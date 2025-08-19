@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CustomerModel, TempModel
+from .models import CustomerModel
 
 # Register your models here.
 
@@ -22,4 +22,3 @@ class CustomerAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(CustomerModel, CustomerAdmin)
-admin.site.register(TempModel)
