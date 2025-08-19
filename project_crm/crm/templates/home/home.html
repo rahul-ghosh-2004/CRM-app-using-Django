@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+CRM Home Page
+{% endblock %}
+
+{% block contents %}
+<center>
+  <div class="overflow-x-auto w-full rounded-lg px-14 mt-10">
+    <form action="" method="get" class="flex items-center justify-center gap-x-2 mb-10">
+            <input type="text" name="search" id="search" class="border border-[2px] border-black w-full py-1 px-2 rounded-md outline-none" placeholder="Enter fullname or email to search ...">
+            <button type="submit" class="bg-stone-800 text-white px-2 py-2 text-sm rounded-sm border border-black hover:bg-slate-900 hover:px-3 hover:py-2 hover:rounded-md cursor-pointer">SEARCH</button>
+        </form>
+    <table class="table-auto border-collapse text-lg w-full">
+      <thead>
+        <tr class="bg-black text-white">
+          <th class="px-4 py-2 text-left">ID</th>
+          <th class="px-4 py-2 text-left">FULLNAME</th>
+          <th class="px-4 py-2 text-left">EMAIL</th>
+          <th class="px-4 py-2 text-left">ADDRESS</th>
+          <th class="px-4 py-2 text-left">CREATED AT</th>
+          <th class="px-4 py-2 text-left">UPDATED AT</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in context %}
+          <tr class="bg-white border-b">
+          <td class="px-4 py-2">
+            <a href="{% url 'update_cust_data' i.id %}" class='text-blue-700 border p-1'>{{i.id}}</a>
+          </td>
+          <td class="px-4 py-2">{{i.fullname}}</td>
+          <td class="px-4 py-2">{{i.email}}</td>
+          <td class="px-4 py-2">{{i.address}}</td>
+          <td class="px-4 py-2">{{i.created_at}}</td>
+          <td class="px-4 py-2">{{i.updated_at}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</center>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-clifford: #da373d;
+      }
+    </style>
+    <title>CRM Login Page</title>
+</head>
+<body class="bg-[#0f172a] flex items-center justify-center min-h-screen text-white">
+
+  <!-- Login Box -->
+  <div class="bg-[#0f172a] p-8 rounded-xl shadow-md w-96 border border-gray-700">
+    
+    
+
+    <!-- Login Heading -->
+    <h2 class="text-lg font-semibold mb-2">Login</h2>
+    <p class="text-sm text-gray-400 mb-6">
+      Enter your username & password to perform the login operation ...
+    </p>
+
+    <!-- Login Form -->
+    <form method="POST" class="space-y-4">
+      {% csrf_token %}
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm mb-1">Username</label>
+        <input type="text" id="email" name="username" placeholder="Eg. user1234" 
+               class="w-full px-3 py-2 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm mb-1">Password</label>
+        <input type="password" id="password" name="password" placeholder="Eg. **********" 
+               class="w-full px-3 py-2 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" 
+              class="w-full py-2 bg-white text-black font-medium rounded-md hover:bg-gray-200 cursor-pointer">
+        Login
+      </button>
+    </form>
+  </div>
+
+</body>
+</html>
